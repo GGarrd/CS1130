@@ -1,0 +1,79 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+    }
+
+    button {
+      background-color: #e8491d;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Unit Converter</h2>
+
+  <!-- Fahrenheit to Celsius -->
+  <label for="fahrenheit">Fahrenheit:</label>
+  <input type="number" id="fahrenheit" placeholder="Enter temperature">
+  <button onclick="convert('fahrenheit', 'celsius')">Convert to Celsius</button>
+
+  <div id="result">
+    <label for="celsius">Result in Celsius:</label>
+    <input type="text" id="celsius" disabled>
+  </div>
+
+  <hr>
+
+  <!-- Celsius to Fahrenheit -->
+  <label for="celsiusToF">Celsius:</label>
+  <input type="number" id="celsiusToF" placeholder="Enter temperature">
+  <button onclick="convert('celsiusToF', 'fahrenheitToC')">Convert to Fahrenheit</button>
+
+  <div id="result">
+    <label for="fahrenheitToC">Result in Fahrenheit:</label>
+    <input type="text" id="fahrenheitToC" disabled>
+  </div>
+    
+    <a href="index.html">Back to Homepage</a>
+
+  <script>
+    function convert(inputId, outputId) {
+      var input = document.getElementById(inputId);
+      var output = document.getElementById(outputId);
+
+      if (inputId.includes("fahrenheit")) {
+        output.value = ((parseFloat(input.value) - 32) * 5/9).toFixed(2);
+      } else if (inputId.includes("celsius")) {
+        output.value = ((parseFloat(input.value) * 9/5) + 32).toFixed(2);
+      }
+    }
+      </script>
+
+    </body>
+</html>
